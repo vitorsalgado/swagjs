@@ -1,5 +1,5 @@
 {
-  "extends": ["standard"],
+  "extends": ["standard", "plugin:sonarjs/recommended"],
   "env": {
     "node": true,
     "jest": true,
@@ -9,5 +9,5 @@
     "global-require": "error",
     "no-console": "error"
   },
-  "plugins": ["security"]
+  "plugins": ["security", "sonarjs"]
 }

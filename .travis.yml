@@ -3,14 +3,17 @@ language: node_js
 sudo: false
 
 node_js:
-  - '6'
+  - '7'
   - 'node'
+
+cache: npm
 
 script:
   - npm run lint
   - npm run test:coverage
   - npm link
-  - swagjs gen ./example -i ./example/base_swagger.yml --model-pattern .model.
+  - mkdir -p ./__temp__
+  - swagjs gen ./example -i ./example/base_swagger.yml -o ./__temp__/swagger.json --model-pattern .model.
 
 after_script:
   - npm run coveralls
