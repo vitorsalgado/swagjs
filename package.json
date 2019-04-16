@@ -20,6 +20,8 @@
   },
   "private": false,
   "keywords": [
+    "cli",
+    "tools",
     "swagger",
     "specs",
     "api",
