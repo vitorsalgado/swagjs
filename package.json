@@ -16,7 +16,7 @@
     "swagjs": "./index.js"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=9"
   },
   "private": false,
   "keywords": [

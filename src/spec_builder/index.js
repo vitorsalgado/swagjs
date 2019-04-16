@@ -26,19 +26,15 @@ const base = opts =>
     .otherwise(readFile)
 
 const definitions = opts =>
-  check(readDir(opts.baseDir,
-    file => opts.modelPattern.some(pattern => file.indexOf(pattern) >= 0), load))
-    .fold()
+  check(loadMatchingPattern(opts, opts.modelPattern)).fold()
 
 const paths = opts =>
-  check(readDir(opts.baseDir,
-    file => opts.pathPattern.some(pattern => file.indexOf(pattern) >= 0), load))
-    .fold()
+  check(loadMatchingPattern(opts, opts.pathPattern)).fold()
 
 const tags = ({ baseDir, tags }) =>
   check(tags)
     .on(file => !file, () => ({}))
-    .on(isYml, file => safeLoad(readFile(Path.join(baseDir, file))))
+    .on(isYml, file => safeLoad(readFile(Path.resolve(file))))
     .fold()
 
 const isYml = x => x.indexOf('.yml') >= 0 || x.indexOf('.yaml') >= 0
@@ -51,9 +47,13 @@ const load = file =>
     .on(isJson, readFile)
     .fold()
 
+const loadMatchingPattern = (opts, pattern) =>
+  readDir(opts.baseDir,
+    file => pattern.some(pattern => file.indexOf(pattern) >= 0), load)
+
 const shouldSaveOutput = opts => !!opts.output
 
 const saveOutput = (opts, data) =>
   shouldSaveOutput(opts)
-    ? Fs.writeFileSync(Path.resolve(opts.output), JSON.stringify(data, 2, 2))
+    ? Fs.writeFileSync(opts.output, JSON.stringify(data, 2, 2))
     : null

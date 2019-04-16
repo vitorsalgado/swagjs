@@ -1,9 +1,9 @@
+__temp__/
 examples/
 scritps/
 node_modules/
 .codeclimate.yml
 .editorconfig
-.eslintrc
 .nvmrc
 .travis.yml
 Makefile

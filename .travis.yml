@@ -3,7 +3,7 @@ language: node_js
 sudo: false
 
 node_js:
-  - '7'
+  - '9'
   - 'node'
 
 cache: npm
@@ -13,7 +13,7 @@ script:
   - npm run test:coverage
   - npm link
   - mkdir -p ./__temp__
-  - swagjs gen ./example -i ./example/base_swagger.yml -o ./__temp__/swagger.json --model-pattern .model.
+  - swagjs gen ./example -i ./example/base_swagger.yml -o ./__temp__/swagger.json --model-pattern .model. --tags ./example/tags.yml
 
 after_script:
   - npm run coveralls

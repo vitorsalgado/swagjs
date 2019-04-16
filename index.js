@@ -4,7 +4,6 @@
 
 'use strict'
 
-const Path = require('path')
 const Program = require('commander')
 const Package = require('./package')
 const SpecsBuilder = require('./src/spec_builder')
@@ -23,7 +22,7 @@ Program
   .command('generate <base_dir>')
   .alias('gen')
   .description('Merge modularized Swagger specs into a single file')
-  .option('-o, --output <output>', 'Output file/directory', Path.resolve, './__temp__/swagger.json')
+  .option('-o, --output <output>', 'Output file/directory', './__temp__/swagger.json')
   .option('-i, --index <index>', 'Swagger base definition')
   .option('--model-pattern [model_pattern]', 'Model files naming pattern', (val, def) => def.concat([val]), ['.model.', '.models.'])
   .option('--path-pattern [path_pattern]', 'Path files naming pattern', (val, def) => def.concat([val]), ['.path.', '.paths.'])
@@ -50,6 +49,6 @@ Program
   .on('--help', () =>
     console.log(`
 Example:
-   $ ${Package.name} server ./specs_root_dir --output=./output_file`))
+   $ ${Package.name} server ./specs_root_dir --port=8080 --model-pattern=.definition.`))
 
 Program.parse(argv)
