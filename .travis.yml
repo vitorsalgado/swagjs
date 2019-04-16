@@ -2,10 +2,6 @@ language: node_js
 
 sudo: false
 
-node_js:
-  - '9'
-  - 'node'
-
 cache: npm
 
 script:
@@ -17,3 +13,12 @@ script:
 
 after_script:
   - npm run coveralls
+
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: ${NPM_EMAIL}
+  api_key: ${NPM_TOKEN}
+  on:
+    branch: master
+    tags: true

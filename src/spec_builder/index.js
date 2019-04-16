@@ -31,7 +31,7 @@ const definitions = opts =>
 const paths = opts =>
   check(loadMatchingPattern(opts, opts.pathPattern)).fold()
 
-const tags = ({ baseDir, tags }) =>
+const tags = ({ tags }) =>
   check(tags)
     .on(file => !file, () => ({}))
     .on(isYml, file => safeLoad(readFile(Path.resolve(file))))
