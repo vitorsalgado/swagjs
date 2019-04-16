@@ -64,3 +64,4 @@ typings/
 .vscode
 .sonarlint
 __temp__/
+reports/

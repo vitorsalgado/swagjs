@@ -56,5 +56,23 @@
     "js-yaml": "^3.13.1",
     "nodejs-fx": "^1.1.0",
     "swagger-tools": "^0.10.4"
+  },
+  "jest": {
+    "notify": false,
+    "verbose": true,
+    "clearMocks": true,
+    "resetMocks": true,
+    "testEnvironment": "node",
+    "coverageDirectory": "reports/coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "__tests__/(fixtures|__mocks__)/",
+      "/_(temp|mock|install|init|helpers|utils).js$"
+    ]
   }
 }
