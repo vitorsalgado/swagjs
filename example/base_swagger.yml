@@ -1,0 +1,22 @@
+---
+
+swagger: '2.0'
+info:
+  title: Sample Swagger Spec
+  description: |-
+    Sample Modular Spec
+  version: 1.0.0
+
+basePath: '/'
+host: swagjs.example
+schemes:
+- http
+produces:
+- application/json
+consumes:
+- application/json
+
+# ----------------------------------------------------------------------------------------------------------------------
+# WARNING!
+# DON'T CHANGE THIS FILE BELOW HERE!
+# ----------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+LoginResponse:
+  type: object
+  properties:
+    access_token:
+      type: string
+    expires_in:
+      type: number
+  required:
+    - access_token
+    - expires_in
+  example:
+    access_token: super_access_token
+    expires_in: 5500

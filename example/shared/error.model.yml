@@ -1,0 +1,16 @@
+ApiError:
+  properties:
+    code:
+      type: string
+    message:
+      type: string
+    error_message:
+      type: string
+  required:
+  - code
+  - message
+  example:
+    code: "AB0015"
+    message: "Super Failure"
+    error_message: "Null Pointer Exception"
+

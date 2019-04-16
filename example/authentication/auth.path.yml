@@ -1,0 +1,24 @@
+/authentication/login:
+  post:
+    tags:
+    - authentication
+    summary: Authencation Operations
+    operationId: login
+    description: |-
+      Sample Login
+    parameters:
+    - in: body
+      name: body
+      description: Login Request
+      required: true
+      schema:
+        $ref: '#/definitions/LoginRequest'
+    responses:
+      200:
+        description: Successful Logon
+        schema:
+          $ref: '#/definitions/LoginResponse'
+      default:
+        description: Default Error Response
+        schema:
+          $ref: '#/definitions/ApiError'

@@ -1,0 +1,15 @@
+LoginRequest:
+  type: object
+  properties:
+    username:
+      type: string
+      description: Username
+    password:
+      type: string
+      description: password
+  required:
+  - username
+  - password
+  example:
+    username: some_username
+    password: Ab@123456
